@@ -7,6 +7,7 @@ import React from 'react'
 export default function App({ Component, pageProps }: AppProps) {
   
   React.useEffect(() => {
+    window.Notification.requestPermission()
     navigator.serviceWorker.register("service-worker.js").then(
       async serviceWorker => {
         let subscription = await serviceWorker.pushManager.getSubscription();
